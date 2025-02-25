@@ -1,0 +1,380 @@
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="https://cdn.tailwindcss.com"></script>
+    <title>Document</title>
+</head>
+
+<!--DO NOT TOUCH! This is what makes the page look good.-->
+<style>
+    body {
+        font-family: Arial, sans-serif;
+        margin: 0;
+        padding: 0;
+    }
+
+    .container {
+        max-width: 1200px;
+        margin: 0 auto;
+    }
+
+    nav {
+        height: 80px;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        padding: 0 20px;
+    }
+
+    nav ul {
+        list-style: none;
+        margin: 0;
+        padding: 0;
+        display: flex;
+    }
+
+    nav ul li {
+        margin-right: 20px;
+    }
+
+    nav a {
+        text-decoration: none;
+        color: #fff;
+    }
+
+    nav a:hover {
+        color: #ccc;
+    }
+
+    .articles {
+        display: grid;
+        grid-template-columns: repeat(4, 1fr);
+        grid-gap: 20px;
+        padding: 20px;
+    }
+
+    .article {
+        background-color: #fff;
+        padding: 20px;
+        border-radius: 10px;
+        box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    }
+
+    .article img {
+        width: 100%;
+        height: 200px;
+        object-fit: cover;
+        border-radius: 10px 10px 0 0;
+    }
+
+    .article h2 {
+        font-size: 24px;
+        margin-bottom: 10px;
+    }
+
+    .article p {
+        font-size: 18px;
+        margin-bottom: 20px;
+    }
+
+    footer {
+        background-color: #333;
+        color: #fff;
+        padding: 20px;
+        text-align: center;
+    }
+
+    footer ul {
+        list-style: none;
+        margin: 0;
+        padding: 0;
+        display: flex;
+        justify-content: space-between;
+    }
+
+    footer ul li {
+        margin-right: 20px;
+    }
+
+    footer a {
+        text-decoration: none;
+        color: #fff;
+    }
+
+    footer a:hover {
+        color: #ccc;
+    }
+
+    @media (max-width: 768px) {
+        .articles {
+            grid-template-columns: repeat(2, 1fr);
+        }
+    }
+
+    @media (max-width: 480px) {
+        .articles {
+            grid-template-columns: 1fr;
+        }
+    }
+</style>
+
+
+
+
+
+
+
+
+<!--------------------Animations----------------------->
+
+<style>
+    /* Animation for the navigation bar */
+    nav {
+        animation: navAnimation 1s ease-in-out;
+    }
+
+    @keyframes navAnimation {
+        0% {
+            transform: translateY(-100px);
+            opacity: 0;
+        }
+        100% {
+            transform: translateY(0);
+            opacity: 1;
+        }
+    }
+
+    /* Animation for the articles */
+    .grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 {
+        animation: articleAnimation 1s ease-in-out;
+    }
+
+    @keyframes articleAnimation {
+        0% {
+            transform: scale(0.5);
+            opacity: 0;
+        }
+        100% {
+            transform: scale(1);
+            opacity: 1;
+        }
+    }
+
+    /* Animation for the footer */
+    footer {
+        animation: footerAnimation 1s ease-in-out;
+    }
+
+    @keyframes footerAnimation {
+        0% {
+            transform: translateY(100px);
+            opacity: 0;
+        }
+        100% {
+            transform: translateY(0);
+            opacity: 1;
+        }
+    }
+
+    /* Animation for the logo */
+    .text-2xl.font-bold {
+        animation: logoAnimation 1s ease-in-out;
+    }
+
+    @keyframes logoAnimation {
+        0% {
+            transform: scale(0.5);
+            opacity: 0;
+        }
+        100% {
+            transform: scale(1);
+            opacity: 1;
+        }
+    }
+
+    /* Animation for the navigation links */
+    nav ul li {
+        animation: navLinkAnimation 1s ease-in-out;
+    }
+
+    @keyframes navLinkAnimation {
+        0% {
+            transform: translateX(-100px);
+            opacity: 0;
+        }
+        100% {
+            transform: translateX(0);
+            opacity: 1;
+        }
+    }
+
+    /* Animation for the article images */
+    .article img {
+        animation: articleImageAnimation 1s ease-in-out;
+    }
+
+    @keyframes articleImageAnimation {
+        0% {
+            transform: scale(0.5);
+            opacity: 0;
+        }
+        100% {
+            transform: scale(1);
+            opacity: 1;
+        }
+    }
+
+    /* Animation for the article titles */
+    .article h2 {
+        animation: articleTitleAnimation 1s ease-in-out;
+    }
+
+    @keyframes articleTitleAnimation {
+        0% {
+            transform: translateY(-100px);
+            opacity: 0;
+        }
+        100% {
+            transform: translateY(0);
+            opacity: 1;
+        }
+    }
+
+    /* Animation for the article descriptions */
+    .article p {
+        animation: articleDescriptionAnimation 1s ease-in-out;
+    }
+
+    @keyframes articleDescriptionAnimation {
+        0% {
+            transform: translateY(100px);
+            opacity: 0;
+        }
+        100% {
+            transform: translateY(0);
+            opacity: 1;
+        }
+    }
+
+    /* Animation for the footer links */
+    footer ul li {
+        animation: footerLinkAnimation 1s ease-in-out;
+    }
+
+    @keyframes footerLinkAnimation {
+        0% {
+            transform: translateX(-100px);
+            opacity: 0;
+        }
+        100% {
+            transform: translateX(0);
+            opacity: 1;
+        }
+    }
+</style>
+
+
+
+
+
+<!--TESTING-->
+
+
+
+
+
+
+<!--Header(TOP)-->
+
+<body>
+    <!--Logo(Dragon's Den)-->
+    <nav class="bg-red-800 text-white p-4 mb-4">
+    <div class="container mx-auto flex justify-between items-center">
+        <a href="#" class="text-2xl font-bold">Dragon's Den</a>
+
+        <!--Navigation-->
+        <ul class="flex items-center space-x-4">
+            <li><a href="#" class="hover:text-blue-400">Home</a></li>
+            <li><a href="#" class="hover:text-blue-400">About</a></li>
+            <li><a href="#" class="hover:text-blue-400">Contact</a></li>
+            <li><a href="#" class="hover:text-blue-400">Login</a></li>
+        </ul>
+    </div>
+</nav>
+
+
+
+
+    <!-------------------PAGE START-------------------->
+
+
+
+
+
+    <!--ARTICLES-->
+    <div class="container mx-auto p-4 pt-6 md:p-6 lg:p-12 xl:p-24 2xl:p-36">
+        <h1 class="text-3xl font-bold text-gray-900 mb-4">Latest News</h1>
+        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-4">
+            
+            <!--Article 1-->
+            <a href="pages/articles/testarticle.html" class="bg-white rounded shadow-md p-4 hover:scale-105 transition duration-300 ease-in-out">
+                <img src="https://picsum.photos/200/300" alt="News Image" class="w-full h-64 object-cover mb-4">
+                <h2 class="text-2xl font-bold text-gray-900 mb-2">News Title</h2>
+                <p class="text-gray-600 mb-4">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed sit amet nulla auctor, vestibulum magna sed, convallis ex.</p>
+            </a>
+           
+            <!--Article 2-->
+            <a href="#" class="bg-white rounded shadow-md p-4 hover:scale-105 transition duration-300 ease-in-out">
+                <img src="https://picsum.photos/200/301" alt="News Image" class="w-full h-64 object-cover mb-4">
+                <h2 class="text-2xl font-bold text-gray-900 mb-2">News Title</h2>
+                <p class="text-gray-600 mb-4">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed sit amet nulla auctor, vestibulum magna sed, convallis ex.</p>
+            </a>
+            
+            <!--Article 3-->
+            <a href="#" class="bg-white rounded shadow-md p-4 hover:scale-105 transition duration-300 ease-in-out">
+                <img src="https://picsum.photos/200/302" alt="News Image" class="w-full h-64 object-cover mb-4">
+                <h2 class="text-2xl font-bold text-gray-900 mb-2">News Title</h2>
+                <p class="text-gray-600 mb-4">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed sit amet nulla auctor, vestibulum magna sed, convallis ex.</p>
+            </a>
+            
+            <!--Article 4-->
+            <a href="#" class="bg-white rounded shadow-md p-4 hover:scale-105 transition duration-300 ease-in-out">
+                <img src="https://picsum.photos/200/303" alt="News Image" class="w-full h-64 object-cover mb-4">
+                <h2 class="text-2xl font-bold text-gray-900 mb-2">News Title</h2>
+                <p class="text-gray-600 mb-4">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed sit amet nulla auctor, vestibulum magna sed, convallis ex.</p>
+            </a>
+        </div>
+        <div class="flex justify-end mt-4">
+            <ul class="flex items-center space-x-4">
+                <li><a href="#" class="hover:text-blue-400">Previous</a></li>
+                <li><a href="#" class="hover:text-blue-400">1</a></li>
+                <li><a href="#" class="hover:text-blue-400">2</a></li>
+                <li><a href="#" class="hover:text-blue-400">3</a></li>
+                <li><a href="#" class="hover:text-blue-400">Next</a></li>
+            </ul>
+        </div>
+    </div>
+
+    
+    
+
+
+
+    <!--Footer-->
+    <footer class="bg-red-800 text-gray-100 p-4 mt-4">
+    <div class="container mx-auto flex justify-between items-center">
+
+        <!--CopyRight Container-->
+        <p class="text-sm">&copy; 2023 Dragon's Den. All rights reserved.</p>
+
+        <!--Navigation Container-->
+        <ul class="flex items-center space-x-4">
+            <li><a href="#" class="hover:text-blue-400">Terms of Service</a></li>
+            <li><a href="#" class="hover:text-blue-400">Privacy Policy</a></li>
+            <li><a href="#" class="hover:text-blue-400">Contact Us</a></li>
+        </ul>
+    </div>
+</footer>
+</body>
+</html>

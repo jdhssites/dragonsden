@@ -7,6 +7,10 @@
     <title>Mock Trial</title>
 </head>
 
+
+
+<!--DONT TOUCH THIS SECTION!-->
+<!--This is what makes the website look nice, and fit on iphone-->
 <style>
     @media only screen and (max-width: 768px) {
     html, body {
@@ -54,23 +58,29 @@
 }
 </style>
 
+
+<!--This is just the theme and text colors-->
+
+<!--Text Colors-->
 <div class="fixed bottom-0 right-0 p-4 flex space-x-4 z-50"> 
     <b>Text:</b>
-    <select id="text-color" onchange="changeTextColor()">
-<option value="default" style="color: black;">Default</option>
-<option value="green" style="color: black;">Green Text</option>
-<option value="red" style="color: black;">Red Text</option>
-<option value="golden" style="color: black;">Golden Text</option>
-<option value="rainbow" style="color: black;">Rainbow Text</option>
-    </select>
+<select id="text-color" onchange="changeTextColor()">
+    <option value="default" style="color: black; background-color: white;">Default</option>
+    <option value="green" style="color: black; background-color: white;">Green Text</option>
+    <option value="red" style="color: black; background-color: white;">Red Text</option>
+    <option value="golden" style="color: black; background-color: white;">Golden Text</option>
+    <option value="rainbow" style="color: black; background-color: white;">Rainbow Text</option>
+</select>
 
+    <!--Theme Colors-->
     <b>Theme:</b>
     <select id="theme" onchange="changeTheme()">
-        <option value="default">Light Theme</option>
-        <option value="dark">Dark Theme</option>
+        <option value="default" style="color: black; background-color: white;">Light Theme</option>
+        <option value="dark" style="color: black; background-color: white;">Dark Theme</option>
     </select>
 </div>
 
+<!--The function code for the theme and text colors-->
 <script>
     function loadUserPreferences() {
         const textColor = localStorage.getItem('textColor');
@@ -131,6 +141,8 @@ function changeTheme() {
 }
 </script>
 
+
+<!--Text Styles-->
 <style>
     .green-text {
         color: #34C759;
@@ -196,6 +208,8 @@ function changeTheme() {
     }
 </style>
 
+
+<!--Theme Styles-->
 <style>
     .light-mode {
         background-color: #fff;
@@ -228,7 +242,7 @@ function changeTheme() {
     .light-mode .shadow-md {
         box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
     }
-    
+
 .dark-mode {
     background-color: #000;
     color: var(--text-color);
@@ -262,7 +276,7 @@ function changeTheme() {
 }
 
 :root {
-    --text-color: #fff;
+    --text-color: #ffffff;
 }
 
 .green-text {
@@ -308,21 +322,69 @@ function changeTheme() {
 
 </style>
 
+<!--Dragon Scales Logo (THIS IS THE TITLE ALL THE WAY AT THE TOP)-->
 <div class="container mx-auto flex justify-between items-center px-4 py-8">
-    <h1 class="text-4xl font-bold uppercase">John Dewey</h1>
+<h1 class="text-3xl font-bold uppercase md:text-4xl" style="background-image: url('images/NYCText.jpg'); background-size: 100% 100%; background-position: center; -webkit-background-clip: text; -webkit-text-fill-color: transparent;">Dragon's Den</h1>
 
     <!-- Normal Navigation (Hidden on Mobile) -->
     <nav class="hidden md:flex">
-        <ul class="flex space-x-6 text-gray-700">
-            <li><a href="index.html" class="hover:text-gray-900">Home</a></li>
-            <li><a href="about.html" class="hover:text-gray-900">About</a></li>
-            <li><a href="features.html" class="hover:text-gray-900">Features</a></li>
-            <li><a href="news.html" class="hover:text-gray-900">News</a></li>
-            <li><a href="staff.html" class="hover:text-gray-900">Staff</a></li>
-            <li><a href="gallery.html" class="hover:text-gray-900">Gallery</a></li>
 
+        <!--Navigation Links-->
+        <ul class="flex space-x-6 text-gray-700">
+            <li><a href="../index.html" class="block hover:text-gray-900">Home</a></li>
+            <li><a href="about.html" class="block hover:text-gray-900">About</a></li>
+            <li><a href="features.html" class="block hover:text-gray-900">Features</a></li>
+            <li><a href="news.html" class="block hover:text-gray-900">News</a></li>
+            <li><a href="staff.html" class="block hover:text-gray-900">Staff</a></li>
+            <li><a href="gallery.html" class="block hover:text-gray-900">Gallery</a></li>
         </ul>
     </nav>
+
+    <script>
+        const navLinks = document.querySelectorAll('nav ul li a');
+        
+        navLinks.forEach(link => {
+            link.addEventListener('mouseover', () => {
+                link.style.transition = 'all 0.3s ease-in-out';
+                link.style.transform = 'scale(1.5) rotateX(30deg) rotateY(30deg)';
+                link.style.textShadow = '0 0 20px rgba(255, 0, 0, 0.8)';
+                link.style.fontSize = '1.2em';
+            });
+        
+            link.addEventListener('mouseout', () => {
+                link.style.transform = 'scale(1)';
+                link.style.textShadow = 'none';
+                link.style.fontSize = '1em';
+            });
+        });
+        </script>
+
+    <!-- Scroll to Top Button -->
+<div class="fixed bottom-7 left-0 p-4 flex space-x-4 z-50" id="scroll-to-top" style="display: none;">
+    <p class="text-gray-700 text-sm hidden md:block">Press 'E' to scroll back up</p>
+    <button class="bg-orange-500 hover:bg-orange-700 text-white font-bold py-2 px-4 rounded" onclick="window.scrollTo({top: 0, behavior: 'smooth'});">
+        <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 10l7-7m0 0l7 7m-7-7v18"></path>
+        </svg>
+    </button>
+</div>
+
+<script>
+    window.addEventListener('scroll', function() {
+        var scrollPosition = window.scrollY;
+        if (scrollPosition > 200) {
+            document.getElementById('scroll-to-top').style.display = 'block';
+        } else {
+            document.getElementById('scroll-to-top').style.display = 'none';
+        }
+    });
+
+    document.addEventListener('keydown', function(event) {
+        if (event.key === 'e' || event.key === 'E') {
+            window.scrollTo({top: 0, behavior: 'smooth'});
+        }
+    });
+</script>
 
     <!-- Burger Menu Icon (Only Visible on Mobile) -->
     <button id="menu-btn" class="md:hidden absolute top-4 right-4 text-gray-700 focus:outline-none">
@@ -333,18 +395,17 @@ function changeTheme() {
 </div>
 
 <!-- Sidebar Menu (Hidden by Default) -->
-<div id="sidebar" class="fixed top-0 left-0 w-64 h-full bg-white shadow-lg transform -translate-x-full transition-transform duration-300 md:hidden">
-    <button id="close-btn" class="absolute top-4 right-4 text-gray-700">
-        ✖
-    </button>
+<div id="sidebar" class="fixed top-0 left-0 w-64 h-full bg-white shadow-lg transform -translate-x-full transition-transform duration-300 md:hidden z-50">
+<button id="close-btn" class="absolute top-4 right-4 text-gray-700 focus:outline-none text-4xl px-2">X</button>
+
+<!--Navigation Links-->
     <ul class="mt-12 space-y-6 text-gray-700 text-lg px-6">
-        <li><a href="index.html" class="block hover:text-gray-900">Home</a></li>
+        <li><a href="../index.html" class="block hover:text-gray-900">Home</a></li>
         <li><a href="about.html" class="block hover:text-gray-900">About</a></li>
         <li><a href="features.html" class="block hover:text-gray-900">Features</a></li>
         <li><a href="news.html" class="block hover:text-gray-900">News</a></li>
         <li><a href="staff.html" class="block hover:text-gray-900">Staff</a></li>
-        <li><a href="gallery.html" class="hover:text-gray-900">Gallery</a></li>
-
+        <li><a href="gallery.html" class="block hover:text-gray-900">Gallery</a></li>
     </ul>
 </div>
 
@@ -370,129 +431,54 @@ function changeTheme() {
     }
 </style>
 
-<div id="popup-container" class="fixed bottom-0 left-0 p-4 flex space-x-4 z-50 bg-gray-800 text-white rounded shadow-md animate-fade-in">
-    <p class="text-sm">Welcome to the official John Dewey Mock Trial Team Website! Would you like to enable Mock Mode?</p>
-    <button class="bg-orange-500 hover:bg-orange-700 text-white font-bold py-1 px-2 rounded" onclick="enableMockMode(); document.getElementById('popup-container').classList.add('hidden')">Yes</button>
-    <button class="bg-orange-500 hover:bg-orange-700 text-white font-bold py-1 px-2 rounded" onclick="document.getElementById('popup-container').classList.add('hidden')">No</button>
-</div>
+<!---------------------------------------------Where the page actually starts--------------------------------->
 
-<script>
-    function enableMockMode() {
-        document.body.classList.add("rainbow-text");
-        document.body.classList.add("dark-mode");
-    }
-</script>
 
-<script>
-    window.onload = function() {
-        document.getElementById('popup-container').classList.remove('hidden');
-    }
-</script>
 
-<div id="under-construction" class="fixed top-0 left-0 w-full h-full bg-gray-800 text-white flex flex-col justify-center items-center z-50 md:py-12 py-6">
-    <p class="text-lg md:text-2xl font-bold">This page is still under construction.</p>
-    <p class="text-sm md:text-md">We apologize for the inconvenience.</p>
-    <div class="flex flex-row space-x-2 md:space-x-4 mt-4 md:mt-8">
-        <a href="index.html" class="bg-orange-500 hover:bg-orange-700 text-white font-bold py-1 md:py-2 px-2 md:px-4 rounded">Back to Home</a>
-        <button class="bg-orange-500 hover:bg-orange-700 text-white font-bold py-1 md:py-2 px-2 md:px-4 rounded" onclick="localStorage.setItem('previewed', true); document.getElementById('under-construction').classList.add('hidden')">Preview Website</button>
-    </div>
-</div>
 
-<script>
-    if (localStorage.getItem('previewed')) {
-        document.getElementById('under-construction').classList.add('hidden');
-    }
-</script>
 
-<style>
-    .animate-fade-in {
-        animation: fade-in 2s;
-    }
 
-    .animate-bounce {
-        animation: bounce 2s;
-    }
+<!-------------------------------------------------------------------------------------------->
 
-    .animate-slide-in {
-        animation: slide-in 2s;
-    }
-
-    .animate-scale-up {
-        animation: scale-up 2s;
-    }
-
-    @keyframes fade-in {
-        0% {
-            opacity: 0;
-        }
-        100% {
-            opacity: 1;
-        }
-    }
-
-    @keyframes bounce {
-        0% {
-            transform: scale(0.5);
-        }
-        50% {
-            transform: scale(1.2);
-        }
-        100% {
-            transform: scale(1);
-        }
-    }
-
-    @keyframes slide-in {
-        0% {
-            transform: translateX(-100%);
-        }
-        100% {
-            transform: translateX(0);
-        }
-    }
-
-    @keyframes scale-up {
-        0% {
-            transform: scale(0.5);
-        }
-        100% {
-            transform: scale(1);
-        }
-    }
-</style>
-
-<a href="https://johndeweyhighschool.org" target="_blank"><img src="school-logo.png" class="fixed top-20 right-4 w-12 h-12 md:w-24 md:h-24" alt="School Logo" style="filter: brightness(1);"></a>
-
+    <!--The School Logo-->
+    <a href="https://johndeweyhighschool.org" target="_blank"><img src="../images/school-logo.png" class="fixed top-20 right-4 w-12 h-12 md:w-24 md:h-24" alt="School Logo" style="filter: brightness(1);"></a>
 
     <!-- Footer -->
-    <footer class="bg-gray-800 text-white text-center py-4"> 
+<footer class="bg-gray-800 text-white text-center py-4"> 
+    <footer class="bg-gray-800 text-white text-center py-4">
+    <div class="container mx-auto px-4">
+        <div class="flex flex-row justify-center mb-4">
 
-        <footer class="bg-gray-800 text-white text-center py-4">
-        <div class="container mx-auto px-4">
-            <div class="flex flex-row justify-center mb-4">
-    <a href="https://www.instagram.com/jdhs_mock_trial/" target="_blank" class="text-gray-400 hover:text-white mr-4">
-        <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
-            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 9a2 2 0 012-2h.93a2 2 0 001.664-.89l.812-1.22A2 2 0 0110.07 4h3.86a2 2 0 011.664.89l.812 1.22A2 2 0 0018.07 7H19a2 2 0 012 2v9a2 2 0 01-2 2H5a2 2 0 01-2-2V9z"></path>
-            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 13a3 3 0 11-6 0 3 3 0 016 0z"></path>
-        </svg>
-    </a>
-                <a href="https://www.facebook.com/jdhs.mock.trial/" target="_blank" class="text-gray-400 hover:text-white mr-4">
-                    <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
-                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M18 2h-3a5 5 0 00-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 011-1h3z"></path>
-                    </svg>
-                </a>
-                <a href="https://twitter.com/jdhs_mock_trial" target="_blank" class="text-gray-400 hover:text-white mr-4">
-                    <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
-                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M23 3a10.9 10.9 0 01-3.14 1.53 4.48 4.48 0 00-7.86 3v1A10.66 10.66 0 013 4s-4 9 5 13a11.64 11.64 0 01-7 2c9 5 20 0 20-11.5a4.5 4.5 0 00-.08-.83A7.72 7.72 0 0023 3z"></path>
-                    </svg>
-                </a>
-            </div>
-            <p>Website designed and developed by Leon Gladyshev.</p>
-            <p>Contact us at <a href="mailto:mocktrialjdhs@gmail.com" class="text-gray-400 hover:text-white">jdhs.mock.trial@gmail.com</a> for more information.</p>
+            <!--Instagram-->
+<a href="https://www.instagram.com/jdhs_mock_trial/" target="_blank" class="text-gray-400 hover:text-white mr-4">
+    <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 9a2 2 0 012-2h.93a2 2 0 001.664-.89l.812-1.22A2 2 0 0110.07 4h3.86a2 2 0 011.664.89l.812 1.22A2 2 0 0018.07 7H19a2 2 0 012 2v9a2 2 0 01-2 2H5a2 2 0 01-2-2V9z"></path>
+        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 13a3 3 0 11-6 0 3 3 0 016 0z"></path>
+    </svg>
+</a>
+
+            <!--Facebook-->
+            <a href="https://www.facebook.com/jdhs.mock.trial/" target="_blank" class="text-gray-400 hover:text-white mr-4">
+                <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M18 2h-3a5 5 0 00-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 011-1h3z"></path>
+                </svg>
+            </a>
+
+            <!--Twitter-->
+            <a href="https://twitter.com/jdhs_mock_trial" target="_blank" class="text-gray-400 hover:text-white mr-4">
+                <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M23 3a10.9 10.9 0 01-3.14 1.53 4.48 4.48 0 00-7.86 3v1A10.66 10.66 0 013 4s-4 9 5 13a11.64 11.64 0 01-7 2c9 5 20 0 20-11.5a4.5 4.5 0 00-.08-.83A7.72 7.72 0 0023 3z"></path>
+                </svg>
+            </a>
         </div>
-    </footer>
-    
-        <p>&copy; 2025 JDHS Dragon's Scales Mock Trial Team. All rights reserved.</p>
-    </footer>
-</body>
+
+        <!--Lower of the Footer-->
+        <p>Website designed and developed by Leon Gladyshev.</p>
+        <p>Contact us at <a href="mailto:mocktrialjdhs@gmail.com" class="text-gray-400 hover:text-white">jdhs.mock.trial@gmail.com</a> for more information.</p>
+    </div>
+        <!--Copy Right-->
+    <p>&copy; 2025 JDHS Dragon's Scales Mock Trial Team. All rights reserved.</p>
+</footer>
+</style>
 </html>
+
