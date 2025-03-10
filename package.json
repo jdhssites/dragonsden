@@ -62,8 +62,8 @@
     "@types/react-dom": "latest",
     "prisma": "latest",
     "typescript": "latest",
-    "@prisma/client": "latest",
-    "bcryptjs": "latest"
+    "bcryptjs": "latest",
+    "@prisma/client": "latest"
   },
   "devDependencies": {
     "@types/node": "^22",

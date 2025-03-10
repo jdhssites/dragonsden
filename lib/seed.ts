@@ -105,6 +105,8 @@ As our understanding of sleep science continues to evolve, one thing remains cle
     }
   } catch (error) {
     console.error("Error seeding database:", error)
+  } finally {
+    await prisma.$disconnect()
   }
 }
 
