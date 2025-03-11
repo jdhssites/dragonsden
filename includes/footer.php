@@ -198,6 +198,6 @@
             }
         });
     </script>
+<?php include 'includes/chat-bubble.php'; ?>
 </body>
 </html>
-

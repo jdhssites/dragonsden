@@ -1,0 +1,45 @@
+/* Chat bubble responsive styles */
+@media (max-width: 640px) {
+    #chat-bubble {
+      bottom: 1rem;
+      right: 1rem;
+    }
+  
+    #chat-bubble a {
+      width: 3rem;
+      height: 3rem;
+    }
+  }
+  
+  /* Hover effects */
+  #chat-bubble a:hover {
+    box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -2px rgba(0, 0, 0, 0.05);
+  }
+  
+  /* Badge positioning */
+  #chat-bubble-badge {
+    box-shadow: 0 0 0 2px #1f2937;
+  }
+  
+  /* Accessibility */
+  #chat-bubble a:focus {
+    outline: none;
+    box-shadow: 0 0 0 3px rgba(59, 130, 246, 0.5);
+  }
+  
+  /* Animation for new messages */
+  @keyframes bounce {
+    0%,
+    100% {
+      transform: translateY(0);
+    }
+    50% {
+      transform: translateY(-5px);
+    }
+  }
+  
+  .bounce {
+    animation: bounce 1s ease infinite;
+  }
+  
+  
